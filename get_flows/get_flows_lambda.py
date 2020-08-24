@@ -9,7 +9,9 @@ import json
 import datetime
 import configparser
 
-def get_flows(image_path, resized_path):
+s3_client = boto3.client('s3')
+
+def get_flows(upload_path):
     try:
         requests.packages.urllib3.disable_warnings()
     except:
@@ -59,17 +61,19 @@ def get_flows(image_path, resized_path):
             #print(json.dumps(flow, indent=4)) # formatted print
             print(flow)
 
+        # write file
+        with open(upload_path, 'w') as f:
+            json.dump(flows, f, indent=4)
+
     # If unable to fetch list of alerts
     else:
         print("An error has ocurred, while fetching flows, with the following code {}".format(response.status_code))
 
 def lambda_handler(event, context):
-    for record in event['Records']:
-        bucket = record['s3']['bucket']['name']
-        key = unquote_plus(record['s3']['object']['key'])
-        tmpkey = key.replace('/', '')
-        download_path = '/tmp/{}{}'.format(uuid.uuid4(), tmpkey)
-        upload_path = '/tmp/resized-{}'.format(tmpkey)
-        s3_client.download_file(bucket, key, download_path)
-        resize_image(download_path, upload_path)
-        s3_client.upload_file(upload_path, '{}-resized'.format(bucket), key)
+    isoformat_utc = datetime.datetime.utcnow().isoformat()
+
+    bucket = 'stealthwatch-cloud-getflow'
+    key = 'get_flows.' + isoformat_utc + 'Z.json'
+    upload_path = '/tmp/' + key
+    get_flows(upload_path)
+    s3_client.upload_file(upload_path, bucket, key)
