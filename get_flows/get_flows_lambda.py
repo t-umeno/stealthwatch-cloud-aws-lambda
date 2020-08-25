@@ -87,7 +87,7 @@ def get_flows(upload_path):
 
         # print len json
         flows_len = len(flows)
-        print('flows_len = %d, stealthwatch_cloud_min_flows = %d' % (flows_len, stealthwatch_cloud_min_flows))
+        print('flows_len = %d, stealthwatch_cloud_min_flows = %d, stealthwatch_cloud_minites = %d' % (flows_len, stealthwatch_cloud_min_flows, stealthwatch_cloud_minites))
         if (flows_len <= stealthwatch_cloud_min_flows):
             print('flows_len <= stealthwatch_cloud_min_flows, line_msg: %s' % line_msg)
             send_info(line_msg)
