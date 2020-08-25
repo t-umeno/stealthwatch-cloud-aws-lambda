@@ -1,8 +1,12 @@
 get_flows.py で取得するのと同様のフロー情報を指定したS3バケットに出力する。
-認証情報はenv.confを最初は使用するが、AWS Lambdaの環境変数渡しに後ほど切り替える。
+AWS Lambdaの環境変数で必要な情報を渡す。
 
 環境変数
 STEALTHWATCH_CLOUD_PORTAL_URL
 STEALTHWATCH_CLOUD_API_USER
 STEALTHWATCH_CLOUD_API_KEY
+STEALTHWATCH_CLOUD_MINITES
+STEALTHWATCH_CLOUD_MIN_FLOWS
 
+LINE_TOKEN
+LINE_MSG
