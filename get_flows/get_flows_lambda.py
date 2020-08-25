@@ -7,7 +7,6 @@ from urllib.parse import unquote_plus
 import requests
 import json
 import datetime
-import configparser
 
 s3_client = boto3.client('s3')
 
@@ -17,16 +16,16 @@ def get_flows(upload_path):
     except:
         pass
 
-
-    # Read the config file
-    config = configparser.ConfigParser()
-    config.read("env.conf")
+    # Read environment variable
+    stealthwatch_cloud_portal_url = os.environ['STEALTHWATCH_CLOUD_PORTAL_URL']
+    stealthwatch_cloud_api_user = os.environ['STEALTHWATCH_CLOUD_API_USER']
+    stealthwatch_cloud_api_key = os.environ['STEALTHWATCH_CLOUD_API_KEY]
 
     # Set the URL
-    url = "https://" + config["StealthwatchCloud"]["PORTAL_URL"] + "/api/v3/snapshots/session-data/"
+    url = "https://" + stealthwatch_cloud_portal_url + "/api/v3/snapshots/session-data/"
 
     # Set the authorization string
-    authorization = "ApiKey " + config["StealthwatchCloud"]["API_USER"] + ":" + config["StealthwatchCloud"]["API_KEY"]
+    authorization = "ApiKey " + stealthwatch_cloud_api_user + ":" + stealthwatch_cloud_api_key
 
     # Create the request headers with authorization
     request_headers = {
