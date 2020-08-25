@@ -19,7 +19,7 @@ def get_flows(upload_path):
     # Read environment variable
     stealthwatch_cloud_portal_url = os.environ['STEALTHWATCH_CLOUD_PORTAL_URL']
     stealthwatch_cloud_api_user = os.environ['STEALTHWATCH_CLOUD_API_USER']
-    stealthwatch_cloud_api_key = os.environ['STEALTHWATCH_CLOUD_API_KEY]
+    stealthwatch_cloud_api_key = os.environ['STEALTHWATCH_CLOUD_API_KEY']
 
     # Set the URL
     url = "https://" + stealthwatch_cloud_portal_url + "/api/v3/snapshots/session-data/"
