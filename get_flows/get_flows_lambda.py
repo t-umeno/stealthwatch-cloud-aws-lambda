@@ -75,11 +75,7 @@ def get_flows(upload_path):
     # If successfully able to get list of flows
     if (response.status_code == 200):
 
-        # Loop through the list and print each flows
         flows = json.loads(response.content)["objects"]
-        for flow in flows:
-            #print(json.dumps(flow, indent=4)) # formatted print
-            print(flow)
 
         # write file
         with open(upload_path, 'w') as f:
