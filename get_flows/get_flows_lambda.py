@@ -92,7 +92,7 @@ def get_flows(upload_path):
             try:
                 s3.Object('stealthwatch-cloud-getflow', 'status_ng').load()
             except botocore.exceptions.ClientError as e:
-                if e.response['Error']['Code'] == "403":
+                if e.response['Error']['Code'] == "404":
                     # The object does not exist.
                     print('send NG message')
                     s3.Object('stealthwatch-cloud-getflow', 'status_ng').put()
@@ -108,7 +108,7 @@ def get_flows(upload_path):
             try:
                 s3.Object('stealthwatch-cloud-getflow', 'status_ng').load()
             except botocore.exceptions.ClientError as e:
-                if e.response['Error']['Code'] == "403":
+                if e.response['Error']['Code'] == "404":
                     # The object does not exist.
                     print('continue OK')
                 else:
