@@ -23,6 +23,8 @@ stealthwatch_cloud_api_key = os.environ['STEALTHWATCH_CLOUD_API_KEY']
 stealthwatch_cloud_minites = int(os.environ['STEALTHWATCH_CLOUD_MINITES'])
 stealthwatch_cloud_min_flows = int(os.environ['STEALTHWATCH_CLOUD_MIN_FLOWS'])
 
+s3_bucket = os.environ['S3_BUCKET']
+
 s3_client = boto3.client('s3')
 s3 = boto3.resource('s3')
 
@@ -127,8 +129,7 @@ def get_flows(upload_path):
 def lambda_handler(event, context):
     isoformat_utc = datetime.datetime.utcnow().isoformat()
 
-    bucket = 'stealthwatch-cloud-getflow'
     key = 'get_flows.' + isoformat_utc + 'Z.json'
     upload_path = '/tmp/' + key
     get_flows(upload_path)
-    s3_client.upload_file(upload_path, bucket, key)
+    s3_client.upload_file(upload_path, s3_bucket, key)
