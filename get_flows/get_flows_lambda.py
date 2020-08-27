@@ -1,4 +1,5 @@
 import boto3
+import botocore
 import os
 import sys
 import uuid
@@ -12,7 +13,8 @@ import datetime
 # LINE notify's API
 LINE_TOKEN = os.environ['LINE_TOKEN']
 LINE_NOTIFY_URL = "https://notify-api.line.me/api/notify"
-line_msg = os.environ['LINE_MSG']
+line_ok_msg = os.environ['LINE_OK_MSG']
+line_ng_msg = os.environ['LINE_NG_MSG']
 
 # Read environment variable
 stealthwatch_cloud_portal_url = os.environ['STEALTHWATCH_CLOUD_PORTAL_URL']
@@ -22,6 +24,7 @@ stealthwatch_cloud_minites = int(os.environ['STEALTHWATCH_CLOUD_MINITES'])
 stealthwatch_cloud_min_flows = int(os.environ['STEALTHWATCH_CLOUD_MIN_FLOWS'])
 
 s3_client = boto3.client('s3')
+s3 = boto3.resource('s3')
 
 def send_info(msg):
     method = "POST"
@@ -85,8 +88,37 @@ def get_flows(upload_path):
         flows_len = len(flows)
         print('flows_len = %d, stealthwatch_cloud_min_flows = %d, stealthwatch_cloud_minites = %d' % (flows_len, stealthwatch_cloud_min_flows, stealthwatch_cloud_minites))
         if (flows_len <= stealthwatch_cloud_min_flows):
-            print('flows_len <= stealthwatch_cloud_min_flows, line_msg: %s' % line_msg)
-            send_info(line_msg)
+            print('flows_len <= stealthwatch_cloud_min_flows, line_ng_msg: %s' % line_ng_msg)
+            try:
+                s3.Object('stealthwatch-cloud-getflow', 'status_ng').load()
+            except botocore.exceptions.ClientError as e:
+                if e.response['Error']['Code'] == "403":
+                    # The object does not exist.
+                    print('send NG message')
+                    s3.Object('stealthwatch-cloud-getflow', 'status_ng').put()
+                    send_info(line_ng_msg)
+                else:
+                    # Something else has gone wrong.
+                    raise
+            else:
+                # The object does exist.
+                print('continue NG')
+        else:
+            print('flows_len > stealthwatch_cloud_min_flows, line_ok_msg: %s' % line_ok_msg)
+            try:
+                s3.Object('stealthwatch-cloud-getflow', 'status_ng').load()
+            except botocore.exceptions.ClientError as e:
+                if e.response['Error']['Code'] == "403":
+                    # The object does not exist.
+                    print('continue OK')
+                else:
+                    # Something else has gone wrong.
+                    raise
+            else:
+                # The object does exist.
+                print('send OK message')
+                s3.Object('stealthwatch-cloud-getflow', 'status_ng').delete()
+                send_info(line_ok_msg)
 
     # If unable to fetch list of alerts
     else:
