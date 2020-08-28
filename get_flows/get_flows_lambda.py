@@ -16,12 +16,17 @@ LINE_NOTIFY_URL = "https://notify-api.line.me/api/notify"
 line_ok_msg = os.environ['LINE_OK_MSG']
 line_ng_msg = os.environ['LINE_NG_MSG']
 
+save_flow = 0
+if ('SAVE_FLOW' in os.environ):
+    save_flow = int(os.environ['SAVE_FLOW'])
+
 # Read environment variable
 stealthwatch_cloud_portal_url = os.environ['STEALTHWATCH_CLOUD_PORTAL_URL']
 stealthwatch_cloud_api_user = os.environ['STEALTHWATCH_CLOUD_API_USER']
 stealthwatch_cloud_api_key = os.environ['STEALTHWATCH_CLOUD_API_KEY']
 stealthwatch_cloud_minites = int(os.environ['STEALTHWATCH_CLOUD_MINITES'])
 stealthwatch_cloud_min_flows = int(os.environ['STEALTHWATCH_CLOUD_MIN_FLOWS'])
+os.environ['STEALTHWATCH_CLOUD_MIN_FLOWS']
 
 s3_bucket = os.environ['S3_BUCKET']
 
@@ -83,8 +88,9 @@ def get_flows(upload_path):
         flows = json.loads(response.content)["objects"]
 
         # write file
-        with open(upload_path, 'w') as f:
-            json.dump(flows, f, indent=4)
+        if (save_flow != 0):
+            with open(upload_path, 'w') as f:
+                json.dump(flows, f, indent=4)
 
         # print len json
         flows_len = len(flows)
@@ -132,4 +138,5 @@ def lambda_handler(event, context):
     key = 'get_flows.' + isoformat_utc + 'Z.json'
     upload_path = '/tmp/' + key
     get_flows(upload_path)
-    s3_client.upload_file(upload_path, s3_bucket, key)
+    if (save_flow != 0):
+        s3_client.upload_file(upload_path, s3_bucket, key)
