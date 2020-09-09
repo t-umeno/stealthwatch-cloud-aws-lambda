@@ -42,3 +42,13 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
 バケット名 「stealthwatch-cloud-getflow」を入力し、
 リージョン　「オレゴン(米国西部)」を選択、
 「次へ」を3回押して、「バケットを作成」を押します。
+
+1. make_function_zip.sh 実行  
+
+1. create-function.sh 実行  
+
+1. env_function.sh 実行  
+
+1. Amazon EventBridge 設定  
+
+1. AWS Lambda 設定  
