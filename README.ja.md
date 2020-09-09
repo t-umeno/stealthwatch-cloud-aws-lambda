@@ -21,11 +21,8 @@ AWS, Stealthwatch Cloud, LINEのアカウントは取得済の前提で記載し
 
 1. AWS CLI バージョン 2 の設定を行います。  
 [設定の基本](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html) に沿ってAWS CLI バージョン 2 の設定を行います。
-
 [アクセスキー ID とシークレットアクセスキー](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-creds)に記載された方法で administrator の アクセスキー ID とシークレットアクセスキー を入手します。
-
 [aws configure を使用したクイック設定](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) に沿って設定を行います。必要に応じて Default region name を設定してください。
-
 ```
 $ aws configure
 AWS Access Key ID [None]: 入手したアクセスキー ID
