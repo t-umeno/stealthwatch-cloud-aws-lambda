@@ -32,7 +32,7 @@ AWS Access Key ID [None]: 入手したアクセスキー ID
 AWS Secret Access Key [None]: 入手したシークレットアクセスキー
 Default region name [None]: us-west-2
 Default output format [None]: json
-'''
+```
 
 1. Stealthwatch Cloud の API Credentials を取得します。
 Stealthwatch Cloud の Your Setting のページで API Credentials を取得します。
