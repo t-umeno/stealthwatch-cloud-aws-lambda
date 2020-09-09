@@ -15,7 +15,7 @@ AWS, Stealthwatch Cloud, LINEのアカウントは取得済の前提で記載し
 1. AWS IAM グループ AdministratorGroup 作成
 [AWS IAM グループ](https://console.aws.amazon.com/iam/home#/groups) で「新しいグループの作成」ボタンを押し、グループ名に「AdministratorGroup」を指定し、「ポリシーのアタッチ」で「AdministratorAccess」を選択したグループを作成します。
 
-1. AWS IAM ユーザー administrator 作成
+1. AWS IAM ユーザー administrator 作成  
 
 [AWS IAM ユーザー](https://console.aws.amazon.com/iam/home#/users) で「ユーザーを追加」ボタンを押し、「ユーザー詳細の設定」の「ユーザー名」に「administrator」を入力、「プログラムによるアクセス」にチェックし、「次のステップ: アクセス権限」
 を押し、「ユーザーをグループに追加」で「AdministratorGroup」にチェックを押し、「次のステップ: タグ」を押し、「次のステップ: 確認」を押し、「ユーザーの作成」を押して、ユーザーを作成します。
