@@ -36,3 +36,10 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
 * AmazonS3FullAccess
 * AWSLambdaExecute
 をアタッチした lambda-s3fullaceess-role というロールを作成します。
+
+1. AWS S3 バケット stealthwatch-cloud-getflow 作成  
+[AWS S3](https://s3.console.aws.amazon.com/s3/home) で
+「＋バケットを作成する」を押し、
+バケット名 「stealthwatch-cloud-getflow」を入力し、
+リージョン　「オレゴン(米国西部)」を選択、
+「次へ」を3回押して、「バケットを作成」を押します。
