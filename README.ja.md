@@ -33,8 +33,8 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
 1. AWS IAM ロール lambda-s3fullaceess-role 作成  
 [AWS IAM ロール](https://console.aws.amazon.com/iam/home?#/roles) で
 「ロールの作成」ボタンを押し、ポリシーに
-    * AmazonS3FullAccess
-    * AWSLambdaExecute
+    * AmazonS3FullAccess  
+    * AWSLambdaExecute  
 をアタッチした lambda-s3fullaceess-role というロールを作成します。
 
 1. AWS S3 バケット stealthwatch-cloud-getflow 作成  
