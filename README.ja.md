@@ -38,7 +38,7 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
     * AmazonS3FullAccess  
     * AWSLambdaExecute  
 
-1. AWS S3 バケット stealthwatch-cloud-getflow 作成
+1. AWS S3 バケット stealthwatch-cloud-getflow 作成  
 現在の状態を保存するS3バケットを作成します。  
 [AWS S3](https://s3.console.aws.amazon.com/s3/home) で
 「＋バケットを作成する」を押し、
