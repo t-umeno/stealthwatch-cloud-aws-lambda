@@ -26,6 +26,11 @@ administrator の アクセスキー ID とシークレットアクセスキー 
 
 1. Ubuntu 18.04 LTS に virtualenv, zip をインストール  
 
+1. Stealthwatch Cloud の センサーを設置  
+Stealthwatch Cloud の センサーの OVA ファイルをダウンロードし、 VirtualBox などにインストールします。  
+OVA ファイルは Stealthwatch Cloud の ? ボタンからたどれる Sensor Install のページからダウンロードできます。  
+センサーのインストール方法の詳細やスイッチの設定などは [StealthwatchCloud無料トライアルガイド](https://www.cisco.com/c/dam/global/ja_jp/td/docs/security/stealthwatch/cloud/free_trial/SWC_Free_Trial_Guide_DV_1_1.pdf) を参照してください。
+
 1. Stealthwatch Cloud の API Credentials を取得します。  
 Stealthwatch Cloud の Your Setting のページで API Credentials を取得します。
 
