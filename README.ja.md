@@ -90,14 +90,14 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
     | S3_BUCKET | stealthwatch-cloud-getflow |
     ```
     ./env_function.sh \
-    STEALTHWATCH_CLOUD_PORTAL_URL=example.obsrvbl.com, \
-    STEALTHWATCH_CLOUD_API_USER=taro.yamada@example.com, \
-    STEALTHWATCH_CLOUD_API_KEY=0123456789abcdef0123456789abcdef, \
-    STEALTHWATCH_CLOUD_MINITES=60, \
-    STEALTHWATCH_CLOUD_MIN_FLOWS=0, \
-    LINE_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG, \
-    LINE_OK_MSG=OK, \
-    LINE_NG_MSG=NG, \
+    STEALTHWATCH_CLOUD_PORTAL_URL=example.obsrvbl.com,\
+    STEALTHWATCH_CLOUD_API_USER=taro.yamada@example.com,\
+    STEALTHWATCH_CLOUD_API_KEY=0123456789abcdef0123456789abcdef,\
+    STEALTHWATCH_CLOUD_MINITES=60,\
+    STEALTHWATCH_CLOUD_MIN_FLOWS=0,\
+    LINE_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG,\
+    LINE_OK_MSG=OK,\
+    LINE_NG_MSG=NG,\
     S3_BUCKET=stealthwatch-cloud-getflow
     ```
 1. Amazon EventBridge 設定  
