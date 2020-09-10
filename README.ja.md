@@ -47,8 +47,20 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
 「次へ」を3回押して、「バケットを作成」を押します。
 
 1. make_function_zip.sh 実行  
+    AWS Lambda で実行するプログラムを function.zip のファイルに集約します。以降、 get_flows のディレクトリでコマンド実行します。
+    ```
+    cd get_flows ; ./make_function_zip.sh
 
+    ```
 1. create-function.sh 実行  
+    AWS Labmda に実行するプログラムをアップロードします。
+    * AWS アカウント ID 123456789012
+    * S3 バケット stealthwatch-cloud-getflow
+    の場合は下記のコマンドを実行します。
+    ```
+    ./create-function.sh 123456789012 stealthwatch-cloud-getflow
+
+    ```
 
 1. env_function.sh 実行  
     AWS Lambda で使用する環境変数を設定します。
@@ -87,7 +99,6 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
     LINE_OK_MSG=OK, \
     LINE_NG_MSG=NG, \
     S3_BUCKET=stealthwatch-cloud-getflow
-
     ```
 1. Amazon EventBridge 設定  
 1. AWS Lambda 設定  
