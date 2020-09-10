@@ -4,7 +4,10 @@
 * AWS EventBridgeからAWS Lambdaを定期実行し、フロー数が一定値以下になったらAWS S3にファイルを作成し、現在の状態を保存します。
 
 ## 実行方法
-AWS, Stealthwatch Cloud, LINEのアカウントは取得済の前提で記載します。
+以下、前提条件です。  
+* AWS, Stealthwatch Cloud, LINEのアカウントは取得済  
+* AWS はオレゴン(米国西部) us-west2 リージョンを使用、リージョンを変更する際にはリージョンに関する部分を変更して実行してください。  
+* S3 バケット名は stealthwatch-cloud-getflow　とした記載です。バケット名を変更する際はバケット名に関する部分を変更して実行してください。  
 
 1. Ubuntu 18.04 LTS 環境を用意します。  
 [Ubuntu 18.04.5 LTS (Bionic Beaver)](https://releases.ubuntu.com/18.04.5/)からISOイメージなどを入手し、パソコンやVirtualBoxなどの環境でUbuntu 18.04 LTSをインストールします。
