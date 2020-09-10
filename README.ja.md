@@ -117,3 +117,8 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
 1. 動作確認  
 Stealth Watchcloud のセンサーとインターネットとの通信を遮断、もしくはセンサーのVMをシャットダウンして、40分から1時間くらいするとLINE NotifyにNGの通知があることを確認します。  
 Stealth Watchcloud のセンサーとインターネットとの通信を回復、もしくはセンサーのVMを再起動して、数十分するとLINE NotifyにOKの通知があることを確認します。  
+
+## 参照
+https://github.com/CiscoDevNet/stealthwatch-cloud-sample-scripts  
+https://developer.cisco.com/stealthwatch/cloud/  
+https://qiita.com/sunleth/items/bc9fa61866d6f23b3a18  
