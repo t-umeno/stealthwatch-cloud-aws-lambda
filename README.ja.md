@@ -51,34 +51,30 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
 1. create-function.sh 実行  
 
 1. env_function.sh 実行  
-AWS Lambda で使用する環境変数を設定します。
+    AWS Lambda で使用する環境変数を設定します。
+    | キー | 値 |
+    ----|----
+    | STEALTHWATCH_CLOUD_PORTAL_URL | Stealthwatch Cloud ポータルURL |
+    | STEALTHWATCH_CLOUD_API_USER | Stealthwatch Cloud の API Credentials のユーザ名 |
+    | STEALTHWATCH_CLOUD_API_KEY | Stealthwatch Cloud の API Credentials のキー |
+    | STEALTHWATCH_CLOUD_MINITES | Stealthwatch Cloud の フロー数取得対象の期間(単位:分) |
+    | STEALTHWATCH_CLOUD_MIN_FLOWS | Stealthwatch Cloud の 通信異常とみなす最低のフロー数 |
+    | LINE_TOKEN | LINE Notify アクセストークン |
+    | LINE_OK_MSG | 通信正常になった時に LINE Notify で通知するメッセージ |
+    | LINE_NG_MSG | 通信異常になった時に LINE Notify で通知するメッセージ |
+    | S3_BUCKET | 現在の状態を保存する S3 バケット |
 
-| キー | 値 |
-----|---- 
-| STEALTHWATCH_CLOUD_PORTAL_URL | Stealthwatch Cloud ポータルURL |
-| STEALTHWATCH_CLOUD_API_USER | Stealthwatch Cloud の API Credentials のユーザ名 |
-| STEALTHWATCH_CLOUD_API_KEY | Stealthwatch Cloud の API Credentials のキー |
-| STEALTHWATCH_CLOUD_MINITES | Stealthwatch Cloud の フロー数取得対象の期間(単位:分) |
-| STEALTHWATCH_CLOUD_MIN_FLOWS | Stealthwatch Cloud の 通信異常とみなす最低のフロー数 |
-| LINE_TOKEN | LINE Notify アクセストークン |
-| LINE_OK_MSG | 通信正常になった時に LINE Notify で通知するメッセージ |
-| LINE_NG_MSG | 通信異常になった時に LINE Notify で通知するメッセージ |
-| S3_BUCKET |  |
-
-
-
-| キー | 値 |
-----|---- 
-| STEALTHWATCH_CLOUD_PORTAL_URL |  |
-| STEALTHWATCH_CLOUD_API_USER |  |
-| STEALTHWATCH_CLOUD_API_KEY |  |
-| STEALTHWATCH_CLOUD_MINITES |  |
-| STEALTHWATCH_CLOUD_MIN_FLOWS |  |
-| LINE_TOKEN |  |
-| LINE_OK_MSG |  |
-| LINE_NG_MSG |  |
-| S3_BUCKET |  |
+    | キー | 値 |
+    ----|----
+    | STEALTHWATCH_CLOUD_PORTAL_URL |  |
+    | STEALTHWATCH_CLOUD_API_USER |  |
+    | STEALTHWATCH_CLOUD_API_KEY |  |
+    | STEALTHWATCH_CLOUD_MINITES |  |
+    | STEALTHWATCH_CLOUD_MIN_FLOWS |  |
+    | LINE_TOKEN |  |
+    | LINE_OK_MSG |  |
+    | LINE_NG_MSG |  |
+    | S3_BUCKET |  |
 
 1. Amazon EventBridge 設定  
-
 1. AWS Lambda 設定  
