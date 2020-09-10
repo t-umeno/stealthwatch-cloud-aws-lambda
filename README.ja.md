@@ -54,8 +54,8 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
     ```
 1. create-function.sh 実行  
     AWS Labmda に実行するプログラムをアップロードします。
-    * AWS アカウント ID 123456789012
-    * S3 バケット stealthwatch-cloud-getflow
+    * AWS アカウント ID 123456789012  
+    * S3 バケット stealthwatch-cloud-getflow  
     の場合は下記のコマンドを実行します。
     ```
     ./create-function.sh 123456789012 stealthwatch-cloud-getflow
