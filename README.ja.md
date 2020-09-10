@@ -108,5 +108,11 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
     LINE_NG_MSG=NG,\
     S3_BUCKET=stealthwatch-cloud-getflow
     ```
-1. Amazon EventBridge 設定  
 1. AWS Lambda 設定  
+(オレゴンの AWS Lambda > 関数)[https://us-west-2.console.aws.amazon.com/lambda/home?region=us-west-2#/functions] で 「GetFlow」をクリックします。デザイナーの「＋トリガーを追加」を押し、「EventBridge (CloudWatch Events)」を選択します。「ルール」で「新規ルールの作成」を選択し、「ルール名」に「getflow」を入力し、「ルールタイプ」は「スケジュール式」をチェックし、「スケジュール式」には「cron(0/5 * * * ? *)」を入力し、「トリガーの有効化」のチェックボタンを押して、無効化して「追加」を押します。  
+「テスト」を押し、「イベント名」に「test」を入力し、「作成」を押します。再度、「テスト」を押し、「実行結果:成功(ログ)」が表示されることを確認します。
+「EventBridge (CloudWatch Events): getflow (無効)」のチェックボックスをチェックし、「Enable」ボタンを押し、ダイアログボックスの「Enable」ボタンを押します。ダイアログボックスの「閉じる」を押します。
+
+1. 動作確認
+Stealth Watchcloud のセンサーとインターネットとの通信を遮断、もしくはセンサーのVMをシャットダウンして、40分から1時間くらいするとLINE NotifyにNGの通知があることを確認します。　　
+Stealth Watchcloud のセンサーとインターネットとの通信を回復、もしくはセンサーのVMを再起動して、数十分するとLINE NotifyにOKの通知があることを確認します。　　
