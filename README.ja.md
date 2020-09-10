@@ -63,18 +63,31 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
     | LINE_OK_MSG | 通信正常になった時に LINE Notify で通知するメッセージ |
     | LINE_NG_MSG | 通信異常になった時に LINE Notify で通知するメッセージ |
     | S3_BUCKET | 現在の状態を保存する S3 バケット |
-
+   
+   環境変数が以下の場合、下記のコマンドを実行します。
     | キー | 値 |
     ----|----
-    | STEALTHWATCH_CLOUD_PORTAL_URL |  |
-    | STEALTHWATCH_CLOUD_API_USER |  |
-    | STEALTHWATCH_CLOUD_API_KEY |  |
-    | STEALTHWATCH_CLOUD_MINITES |  |
-    | STEALTHWATCH_CLOUD_MIN_FLOWS |  |
-    | LINE_TOKEN |  |
-    | LINE_OK_MSG |  |
-    | LINE_NG_MSG |  |
-    | S3_BUCKET |  |
+    | STEALTHWATCH_CLOUD_PORTAL_URL | example.obsrvbl.com |
+    | STEALTHWATCH_CLOUD_API_USER | taro.yamada@example.com |
+    | STEALTHWATCH_CLOUD_API_KEY | 0123456789abcdef0123456789abcdef |
+    | STEALTHWATCH_CLOUD_MINITES | 60 |
+    | STEALTHWATCH_CLOUD_MIN_FLOWS | 0 |
+    | LINE_TOKEN | abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG |
+    | LINE_OK_MSG | OK |
+    | LINE_NG_MSG | NG |
+    | S3_BUCKET | stealthwatch-cloud-getflow |
+    ```
+    ./env_function.sh \
+    STEALTHWATCH_CLOUD_PORTAL_URL=example.obsrvbl.com, \
+    STEALTHWATCH_CLOUD_API_USER=taro.yamada@example.com, \
+    STEALTHWATCH_CLOUD_API_KEY=0123456789abcdef0123456789abcdef, \
+    STEALTHWATCH_CLOUD_MINITES=60, \
+    STEALTHWATCH_CLOUD_MIN_FLOWS=0, \
+    LINE_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789ABCDEFG, \
+    LINE_OK_MSG=OK, \
+    LINE_NG_MSG=NG, \
+    S3_BUCKET=stealthwatch-cloud-getflow
 
+    ```
 1. Amazon EventBridge 設定  
 1. AWS Lambda 設定  
