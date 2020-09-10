@@ -121,4 +121,6 @@ Stealth Watchcloud のセンサーとインターネットとの通信を回復�
 ## 参照
 https://github.com/CiscoDevNet/stealthwatch-cloud-sample-scripts  
 https://developer.cisco.com/stealthwatch/cloud/  
-https://qiita.com/sunleth/items/bc9fa61866d6f23b3a18  
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/with-s3-example-deployment-pkg.html#with-s3-example-deployment-pkg-python  
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-python.html  
+https://qiita.com/sunleth/items/bc9fa61866d6f23b3a18
