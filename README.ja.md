@@ -24,6 +24,8 @@ AWS, Stealthwatch Cloud, LINEのアカウントは取得済の前提で記載し
 [アクセスキー ID とシークレットアクセスキー](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-creds)に記載された方法で administrator の アクセスキー ID とシークレットアクセスキー を入手します。  
 administrator の アクセスキー ID とシークレットアクセスキー を用いて[aws configure を使用したクイック設定](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) に沿って設定を行います。Default region name には us-west-2、 Default output format には json を指定してください。
 
+1. Ubuntu 18.04 LTS に virtualenv, zip をインストール  
+
 1. Stealthwatch Cloud の API Credentials を取得します。  
 Stealthwatch Cloud の Your Setting のページで API Credentials を取得します。
 
@@ -36,7 +38,8 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
     * AmazonS3FullAccess  
     * AWSLambdaExecute  
 
-1. AWS S3 バケット stealthwatch-cloud-getflow 作成  
+1. AWS S3 バケット stealthwatch-cloud-getflow 作成
+現在の状態を保存するS3バケットを作成します。  
 [AWS S3](https://s3.console.aws.amazon.com/s3/home) で
 「＋バケットを作成する」を押し、
 バケット名 「stealthwatch-cloud-getflow」を入力し、
@@ -48,6 +51,33 @@ Stealthwatch Cloud の Your Setting のページで API Credentials を取得し
 1. create-function.sh 実行  
 
 1. env_function.sh 実行  
+AWS Lambda で使用する環境変数を設定します。
+
+| キー | 値 |
+----|---- 
+| STEALTHWATCH_CLOUD_PORTAL_URL | Stealthwatch Cloud ポータルURL |
+| STEALTHWATCH_CLOUD_API_USER | Stealthwatch Cloud の API Credentials のユーザ名 |
+| STEALTHWATCH_CLOUD_API_KEY | Stealthwatch Cloud の API Credentials のキー |
+| STEALTHWATCH_CLOUD_MINITES | Stealthwatch Cloud の フロー数取得対象の期間(単位:分) |
+| STEALTHWATCH_CLOUD_MIN_FLOWS | Stealthwatch Cloud の 通信異常とみなす最低のフロー数 |
+| LINE_TOKEN | LINE Notify アクセストークン |
+| LINE_OK_MSG | 通信正常になった時に LINE Notify で通知するメッセージ |
+| LINE_NG_MSG | 通信異常になった時に LINE Notify で通知するメッセージ |
+| S3_BUCKET |  |
+
+
+
+| キー | 値 |
+----|---- 
+| STEALTHWATCH_CLOUD_PORTAL_URL |  |
+| STEALTHWATCH_CLOUD_API_USER |  |
+| STEALTHWATCH_CLOUD_API_KEY |  |
+| STEALTHWATCH_CLOUD_MINITES |  |
+| STEALTHWATCH_CLOUD_MIN_FLOWS |  |
+| LINE_TOKEN |  |
+| LINE_OK_MSG |  |
+| LINE_NG_MSG |  |
+| S3_BUCKET |  |
 
 1. Amazon EventBridge 設定  
 
